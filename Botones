@@ -142,11 +142,11 @@ public class Botones {
 	    public double getFavorito(int posicion) {
 		    if(encendido){
 	            if(estado == true){
-	                this.frecuencia = this.am.indexOf(this.am.get(posicion));
+	                this.frecuencia = this.am[posicion-1].getEstacion();
 	                return frecuencia;
 	            }
 	            if(estado == false){
-	                this.frecuencia = this.fm.indexOf(this.fm.get(posicion));
+	                this.frecuencia = this.fm[posicion-1].getEstacion();
 	                return frecuencia ; 
 	            }
 	        }

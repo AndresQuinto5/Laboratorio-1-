@@ -1,25 +1,23 @@
 /**
  * @author Majo!
- *Andres Quinto #18288
- *Maria Jose Castro #181202
- *Algoritmos y estructura de datos
+ *
  */
 import java.util.ArrayList;
 public class Botones {
 
 	    private double frecuencia;
-	    private ArrayList<Emisora> am;//aqui se guardan las estaciones AM
-	    private ArrayList<Emisora> fm;//aqui la lista de las estaciones FM
+	    private Emisora[] am = new Emisora[11];//aqui se guardan las estaciones AM
+	    private Emisora[] fm = new Emisora[11];//aqui la lista de las estaciones FM
 	    private boolean encendido;
 	    private boolean estado;
 
 	    /**
+	     * 
 	     *Constructor donde reservo espacio de memoria para las variables 
 	     */
 	    public Botones() {
 	        this.frecuencia = 0;
-	        this.am = new ArrayList<Emisora>();
-	        this.fm = new ArrayList<Emisora>();
+	       
 	        this.encendido = true;
 	        this.estado = true;
 	    }
@@ -125,20 +123,20 @@ public class Botones {
 	    }
 	    
 	    public void setFavorito(int posicion) {
+	    	Emisora emisora = new Emisora();
+	    	emisora.setEstacion(getFrecuencia());
 	    	if(encendido){
 	            if(estado == true){
-	                if (this.am.size() < 12) {
-		          // this.am.add();
-		            am.set(posicion-1, getFrecuencia());
+	                emisora.setEstacion(frecuencia); 
+	                this.am[posicion - 1]= emisora;
 	        }
+	          
+	            else {
+	            	emisora.setEstacion(frecuencia);
+	            	this.am[posicion-1]= emisora;
 	            }
-	            if (estado == false){
-	            	if(this.am.size() < 12){
-	            	//this.fm.add(new Emisora(frecuencia));
-		            am.set(posicion-1, new Emisora());  
-	        }
-	        }
-	    	}
+	            
+	    	}    
 	    }
 	    
 	    public double getFavorito(int posicion) {
@@ -154,4 +152,5 @@ public class Botones {
 	        }
 			return frecuencia;
 	    }
+	                    
 }
